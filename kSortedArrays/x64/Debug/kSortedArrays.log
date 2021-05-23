@@ -1,6 +1,6 @@
 ﻿  functions.cpp
-C:\Users\97254\source\repos\kSortedArrays\kSortedArrays\functions.cpp(23,16): warning C4101: 'temp': unreferenced local variable
-C:\Users\97254\source\repos\kSortedArrays\kSortedArrays\functions.cpp(100,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\97254\source\repos\kSortedArrays\kSortedArrays\functions.cpp(101,10): warning C4101: 'j': unreferenced local variable
-C:\Users\97254\source\repos\kSortedArrays\kSortedArrays\functions.cpp(144,16): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  kSortedArrays.vcxproj -> C:\Users\97254\source\repos\kSortedArrays\x64\Debug\kSortedArrays.exe
+C:\Users\97254\source\repos\kSortedArrays\kSortedArray\kSortedArrays\functions.cpp(23,16): warning C4101: 'temp': unreferenced local variable
+C:\Users\97254\source\repos\kSortedArrays\kSortedArray\kSortedArrays\functions.cpp(100,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\97254\source\repos\kSortedArrays\kSortedArray\kSortedArrays\functions.cpp(169,16): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+x64\Debug\minHeap.obj : warning LNK4042: object specified more than once; extras ignored
+  kSortedArrays.vcxproj -> C:\Users\97254\source\repos\kSortedArrays\kSortedArray\x64\Debug\kSortedArrays.exe

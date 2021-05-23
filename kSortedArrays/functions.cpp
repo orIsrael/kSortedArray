@@ -87,7 +87,7 @@ void swap(double* a, double* b) {
 
 
 
-void kSortedArray(Pair* arr, int n, int k, minHeap &heap,double *sorted)
+void kSortedArray(Pair* arr,int left, int n, int k, minHeap &heap,double *sorted)
 {
 
 	if (n < k)
@@ -100,32 +100,57 @@ void kSortedArray(Pair* arr, int n, int k, minHeap &heap,double *sorted)
 		int ceilArray = ceil((double)n / k);
 		int i, j;
 
+
+
 		for (i = 0; i < addition; i++)
-			kSortedArray(arr + (i * ceilArray), ceilArray, k, heap, sorted);
+			kSortedArray(arr + (i * ceilArray), i * ceilArray,  ceilArray, k, heap, sorted);
 			
 
 		for (i; i < k; i++)
-			kSortedArray(arr + i * n / k + addition, n /k, k, heap, sorted);
+			kSortedArray(arr + i * n / k + addition, i* n / k + addition, n /k, k, heap, sorted);
+
+
+		for (i = 0; i < addition; i++)
+		{
+			for (j = 0; j < ceilArray; j++)
+			{
+				arr[i * ceilArray + j].numOfArr = i;
+				arr[i * ceilArray + j].arrSize = ceilArray;
+				arr[i * ceilArray + j].idx = j;
+			}
+		}
+		for (i = addition; i < k; i++)
+		{
+			for (j = 0; j < n / k; j++)
+			{
+				arr[i * n / k + j + addition].numOfArr = i;
+				arr[i * n / k + j + addition].arrSize = n / k;
+				arr[i * n / k + j + addition].idx = j;
+			}
+		}
 
 		for (i = 0; i < addition * ceilArray; i += ceilArray)
 			heap.Insert(arr[i]);
 		for (i; i < n; i += n / k)
 			heap.Insert(arr[i]);
 
-		
 
 		Pair min;
 		i = 0;
-		while (!heap.isEmpty())
-		{
-			min = heap.DeleteMin();
+		while(!heap.isEmpty())
+			{
+				min = heap.DeleteMin();
 
-			sorted[i] = min.priority;
+				sorted[i] = min.priority;
 
-			if (min.idx + 1 < min.arrSize)
-				heap.Insert(arr[min.arrIdx + 1]);
-			i++;
-		}
+				if (min.idx + 1 < min.arrSize && i < n-1)
+					heap.Insert(arr[min.arrIdx + 1]);
+				i++;
+			}
+		for (i = 0; i < n; i++)
+			arr[i].priority = sorted[i];
+		
+		
 	}
 }
 
@@ -184,7 +209,7 @@ void UI()
 
 	double* sorted = new double[n];
 
-	kSortedArray(arr, n, k, heap, sorted);
+	kSortedArray(arr, 0, n, k, heap, sorted);
 
 	for (i = 0; i < n; i++)
 		cout << arr[i].idx<< endl;

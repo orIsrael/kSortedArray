@@ -10,7 +10,7 @@ void read(string i_file, int n, Pair* arr);
 int partition(Pair* arr, int start, int size);
 //int Partition(Pair* arr, int low, int high, double pivotValue);
 void quickSort(Pair* arr, int left, int right);
-void kSortedArray(Pair* arr, int n, int k, minHeap &heap,double *sorted);
+void kSortedArray(Pair* arr,int left, int n, int k, minHeap &heap,double *sorted);
 void UI();
 
 
